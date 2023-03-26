@@ -8,12 +8,10 @@ export default function SingleProduct() {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log("heyyyyyyyyyyyyy");
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
-        console.log(data);
       });
   }, [id]);
 
