@@ -16,16 +16,6 @@ export default function Navigation() {
             <Link to="/cart">Cart</Link>
           </li>
         </ul>
-        <ul>
-          <li>
-            <Link to="/product/2">Single product</Link>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <Link to="/search/product">Search products</Link>
-          </li>
-        </ul>
       </nav>
     </div>
   );

@@ -9,7 +9,7 @@ export default function SingleProduct() {
 
   useEffect(() => {
     console.log("heyyyyyyyyyyyyy");
-    fetch("https://fakestoreapi.com/products/1")
+    fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
