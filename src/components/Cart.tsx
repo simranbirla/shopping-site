@@ -10,8 +10,7 @@ export default function Cart() {
   );
 
   return (
-    <div>
-      Cart
+    <div className="cart-cards">
       {cartProducts.length > 0 ? (
         cartProducts.map((product) => (
           <CartProductCard

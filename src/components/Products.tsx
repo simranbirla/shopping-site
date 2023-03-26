@@ -2,16 +2,11 @@ import React, { useEffect, useState } from "react";
 import { IProduct } from "../interfaces/Product";
 import ProductCard from "./ProductCard";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/actions";
+import "../styles/products.css";
 
 export default function Products() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [searchProduct, setSearchProduct] = useState<string>("");
-
-  const count = useSelector((state) => state);
-  const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,9 +28,8 @@ export default function Products() {
   };
 
   return (
-    <>
-      Products
-      <div>
+    <main>
+      <div className="search-box">
         <input
           type="text"
           value={searchProduct}
@@ -47,34 +41,12 @@ export default function Products() {
         </button>
       </div>
       <div className="products">
-        {products.length > 0 ? (
-          products.map((product) => (
-            <ProductCard product={product} key={product.id} />
-          ))
-        ) : (
-          <div>Loading </div>
-        )}
+        {products.length > 0
+          ? products.map((product) => (
+              <ProductCard product={product} key={product.id} />
+            ))
+          : "Loading"}
       </div>
-      <button
-        onClick={() =>
-          dispatch(
-            addToCart({
-              id: 22,
-              rating: {
-                rate: 4,
-                count: 100,
-              },
-              title: "test product",
-              price: 13.5,
-              description: "lorem ipsum set",
-              image: "https://i.pravatar.cc",
-              category: "electronic",
-            })
-          )
-        }
-      >
-        CLICK
-      </button>
-    </>
+    </main>
   );
 }

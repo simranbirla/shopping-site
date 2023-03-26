@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../redux/actions";
+import "../styles/cartCard.css";
 
 interface ICartProductCard {
   id: number;
@@ -21,11 +22,17 @@ export default function CartProductCard({
 
   return (
     <div className="cart-card">
-      <h3>{title}</h3>
       <img src={image} alt={title} />
-      <p>Quantity: {quantity}</p>
-      <p>Price: {price}</p>
-      <button onClick={() => dispatch(removeFromCart(id))}>Remove Item</button>
+      <div className="cart-card__details">
+        <div className="cart-card__details--info">
+          <p>{title}</p>
+          <p>Quantity: {quantity}</p>
+          <p>Price: {price}</p>
+        </div>
+        <button onClick={() => dispatch(removeFromCart(id))}>
+          Remove Item
+        </button>
+      </div>
     </div>
   );
 }

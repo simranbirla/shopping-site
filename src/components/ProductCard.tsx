@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { IProduct } from "../interfaces/Product";
 import { addToCart, decreaseItem } from "../redux/actions";
 import { IReducerState } from "../redux/reducers";
+import "../styles/productCard.css";
 
 interface IProductCard {
   product: IProduct;
@@ -31,16 +32,29 @@ export default function ProductCard({ product }: IProductCard): ReactElement {
 
   return (
     <div className="product-card">
-      ProductCard
-      <h1 className="product-card__title">{title}</h1>
       <Link to={`/product/${id}`}>
+        <h1 className="product-card__title">{title}</h1>
         <img src={image} alt={title} className="product-card__img" />
       </Link>
       <h2 className="product-card__description">{description}</h2>
-      <button onClick={addProductToCart}>Add To Cart</button>
-      <button onClick={addProductToCart}>+</button>
-      <p>Quantity: {quantity}</p>
-      <button onClick={decreaseProductQuantity}>-</button>
+      <p className="product-card__price">
+        Price: <strong>${price}</strong>
+      </p>
+      <button onClick={addProductToCart} className="product-card__button--blue">
+        Add To Cart
+      </button>
+      <div className="product-card__quantity">
+        <button onClick={addProductToCart} className="product-card__button">
+          +
+        </button>
+        <p>Quantity: {quantity}</p>
+        <button
+          onClick={decreaseProductQuantity}
+          className="product-card__button"
+        >
+          -
+        </button>
+      </div>
     </div>
   );
 }

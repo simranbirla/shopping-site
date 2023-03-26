@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../styles/navigation.css";
 
 export default function Navigation() {
   return (
-    <div>
-      Navigation
+    <header>
       <nav>
         <ul>
           <li>
@@ -17,6 +17,6 @@ export default function Navigation() {
           </li>
         </ul>
       </nav>
-    </div>
+    </header>
   );
 }
